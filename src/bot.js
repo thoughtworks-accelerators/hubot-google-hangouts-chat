@@ -240,8 +240,7 @@ class HangoutsChatBot extends Adapter {
             message
                 ? new AddedToSpaceTextMessage(
                     user,
-                    // For empty @mention's, argumentText is undefined.
-                    message.argumentText || '',
+                    message.text || '',
                     message.name,
                     space,
                     message.thread,
@@ -256,8 +255,7 @@ class HangoutsChatBot extends Adapter {
       case 'MESSAGE':
         hangoutsChatMessage = new HangoutsChatTextMessage(
           user,
-          // For empty @mention's, argumentText is undefined.
-          message.argumentText || '',
+          message.text || '',
           message.name,
           space,
           message.thread,
