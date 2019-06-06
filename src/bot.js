@@ -101,7 +101,7 @@ class HangoutsChatBot extends Adapter {
   send(envelope, ...strings) {
     this.postMessage_(
         this.getSpaceFromEnvelope_(envelope),
-        undefined,
+        this.getThreadFromEnvelope_(envelope),
         strings[0],
         strings[1],
         undefined);
@@ -133,6 +133,16 @@ class HangoutsChatBot extends Adapter {
         strings[1],
         undefined,
         true);
+  }
+  getThreadFromEnvelope_(envelope){
+    if (envelope.message) {
+      return envelope.message.thread;
+    }
+
+    if (envelope.room) {
+      return envelope.room;
+    }
+    return null
   }
   /**
    * Gets the space name from the envelope object. The envelope must have either
