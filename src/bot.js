@@ -23,9 +23,6 @@ const {auth} = require('google-auth-library');
 const {HangoutsChatTextMessage, AddedToSpaceTextMessage, AddedToSpaceMessage, RemovedFromSpaceMessage, CardClickedMessage} = require('./message')
 const express = require('express');
 const bodyparser = require('body-parser');
-const app = express()
-    .use(bodyparser.urlencoded({extended: false}))
-    .use(bodyparser.json());
 
 class HangoutsChatBot extends Adapter {
 
@@ -176,18 +173,6 @@ class HangoutsChatBot extends Adapter {
             this.robot.logger.error('Message creation failed.', err));
   }
 
-  /** Activates HTTP listener and sets up handler to handle events. */
-  startHttpServer() {
-    // Create an event handler to handle messages.
-    app.post('/', (req, res) => {
-      this.onEventReceived(req.body, res);
-    });
-    // Listen for new messages.
-    app.listen(this.port, () => {
-      this.robot.logger.info(`Server is running in port - ${this.port}`);
-    });
-  }
-
   /**
    * Initializes the Cloud Pub/Sub Subscriber, establishes connection to the
    * Subscription and sets up handler to handle events.
@@ -304,8 +289,9 @@ class HangoutsChatBot extends Adapter {
       // Connect to PubSub subscription
       this.startPubSubClient();
     } else {
-      // Begin listening at HTTP endpoint
-      this.startHttpServer();
+      this.robot.router.post('/', (req, res) => {
+        this.onEventReceived(req.body, res);
+      });
     }
 
     this.robot.logger.info('Hangouts Chat adapter initialized successfully');
