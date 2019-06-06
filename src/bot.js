@@ -21,8 +21,6 @@ const PubSub = require(`@google-cloud/pubsub`);
 const {google} = require('googleapis');
 const {auth} = require('google-auth-library');
 const {HangoutsChatTextMessage, AddedToSpaceTextMessage, AddedToSpaceMessage, RemovedFromSpaceMessage, CardClickedMessage} = require('./message')
-const express = require('express');
-const bodyparser = require('body-parser');
 
 class HangoutsChatBot extends Adapter {
 
@@ -32,7 +30,6 @@ class HangoutsChatBot extends Adapter {
     this.subscriptionName =
         `projects/${options.projectId}/subscriptions/${options.subscriptionId}`;
     this.isPubSub = options.isPubSub;
-    this.port = options.port;
 
     // Establish OAuth with Hangouts Chat. This is required for PubSub bots and
     // HTTP bots which want to create async messages.
