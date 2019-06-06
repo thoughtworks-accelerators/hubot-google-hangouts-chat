@@ -244,9 +244,11 @@ class HangoutsChatBot extends Adapter {
             new RemovedFromSpaceMessage(user, space, eventTime, res);
         break;
       case 'MESSAGE':
+        let text = message.text || ""
+        if(space.type === "DM") text = `@${this.robot.name} ${text}`
         hangoutsChatMessage = new HangoutsChatTextMessage(
           user,
-          message.text || '',
+          text,
           message.name,
           space,
           message.thread,
