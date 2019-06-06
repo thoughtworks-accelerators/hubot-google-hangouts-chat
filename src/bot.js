@@ -127,21 +127,12 @@ class HangoutsChatBot extends Adapter {
           'When sending a reply, the envelope must contain a message');
     }
     this.postMessage_(
-        this.getThreadFromEnvelope_(envelope),
+        this.getSpaceFromEnvelope_(envelope),
         envelope.message.thread,
         strings[0],
         strings[1],
-        envelope.message.httpRes,
+        undefined,
         true);
-  }
-  getThreadFromEnvelope_(envelope) {
-    if(envelope.message){
-      return envelope.message.thread.name;
-    }
-    if(envelope.room) {
-      return envelope.room;
-    }
-    throw new Error("When sending a message, the envelope must have either a message or a room.");
   }
   /**
    * Gets the space name from the envelope object. The envelope must have either
