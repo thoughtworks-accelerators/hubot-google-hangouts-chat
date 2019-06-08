@@ -1,0 +1,16 @@
+{
+    "type": "ADDED_TO_SPACE",
+    "eventTime": "2019-06-07T16:19:39.202739Z",
+    "user": {
+        "name": "users/112431535371413540116",
+        "displayName": "Joey Guerra",
+        "avatarUrl": "https://lh3.googleusercontent.com/a-/AAuE7mCN37cW4-mLY5Rm-sTxv6gKR-RVXTsqRffz3gvq",
+        "email": "jguerra@thoughtworks.com",
+        "type": "HUMAN"
+    },
+    "space": {
+        "name": "spaces/AAAAK9JplZY",
+        "type": "ROOM",
+        "displayName": "testing-chatbots"
+    }
+}

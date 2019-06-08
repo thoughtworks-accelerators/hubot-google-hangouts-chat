@@ -1,0 +1,39 @@
+{
+    "type": "MESSAGE",
+    "eventTime": "2019-06-07T16:22:17.308975Z",
+    "message": {
+        "name": "spaces/6ojTvAAAAAE/messages/Z3PpohulHfg.Z3PpohulHfg",
+        "sender": {
+            "name": "users/112431535371413540116",
+            "displayName": "Joey Guerra",
+            "avatarUrl": "https://lh3.googleusercontent.com/a-/AAuE7mCN37cW4-mLY5Rm-sTxv6gKR-RVXTsqRffz3gvq",
+            "email": "jguerra@thoughtworks.com",
+            "type": "HUMAN"
+        },
+        "createTime": "2019-06-07T16:22:17.308975Z",
+        "text": "hi",
+        "thread": {
+            "name": "spaces/6ojTvAAAAAE/threads/Z3PpohulHfg",
+            "retentionSettings": {
+                "state": "PERMANENT"
+            }
+        },
+        "space": {
+            "name": "spaces/6ojTvAAAAAE",
+            "type": "DM"
+        },
+        "argumentText": "hi"
+    },
+    "user": {
+        "name": "users/112431535371413540116",
+        "displayName": "Joey Guerra",
+        "avatarUrl": "https://lh3.googleusercontent.com/a-/AAuE7mCN37cW4-mLY5Rm-sTxv6gKR-RVXTsqRffz3gvq",
+        "email": "jguerra@thoughtworks.com",
+        "type": "HUMAN"
+    },
+    "space": {
+        "name": "spaces/6ojTvAAAAAE",
+        "type": "DM"
+    },
+    "configCompleteRedirectUrl": "https://chat.google.com/api/bot_config_complete?token=AClqJQRrbqOBmnXxl__kIp4NfrqRapUAnjUjsJQAU19-oTweDNIFRL-XxKv_2dA4fYK7GRkxvUxBKTu4Hte1yS5lYX8jNQvdzSxXTqXuad5R-587tihTv7Lu3zZZTC5WxMa-nvDr6jbPRjlgvv-z"
+}

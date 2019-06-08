@@ -1,0 +1,57 @@
+{
+    "type": "MESSAGE",
+    "eventTime": "2019-06-07T16:20:49.488079Z",
+    "message": {
+        "name": "spaces/AAAAK9JplZY/messages/OBcnBvc_8x0.c4AqJcseuVk",
+        "sender": {
+            "name": "users/112431535371413540116",
+            "displayName": "Joey Guerra",
+            "avatarUrl": "https://lh3.googleusercontent.com/a-/AAuE7mCN37cW4-mLY5Rm-sTxv6gKR-RVXTsqRffz3gvq",
+            "email": "jguerra@thoughtworks.com",
+            "type": "HUMAN"
+        },
+        "createTime": "2019-06-07T16:20:49.488079Z",
+        "text": "@pipbot hi",
+        "annotations": [
+            {
+                "type": "USER_MENTION",
+                "startIndex": 0,
+                "length": 7,
+                "userMention": {
+                    "user": {
+                        "name": "users/110310979709278112520",
+                        "displayName": "pipbot",
+                        "avatarUrl": "https://lh5.googleusercontent.com/proxy/tzgw64U5WlHOfKGlrQsfTSEeUJ53-fxYs_kKWEIusQXAS-u7WVtxn4PWxNnDmPXF5HPj",
+                        "type": "BOT"
+                    },
+                    "type": "MENTION"
+                }
+            }
+        ],
+        "thread": {
+            "name": "spaces/AAAAK9JplZY/threads/OBcnBvc_8x0",
+            "retentionSettings": {
+                "state": "PERMANENT"
+            }
+        },
+        "space": {
+            "name": "spaces/AAAAK9JplZY",
+            "type": "ROOM",
+            "displayName": "testing-chatbots"
+        },
+        "argumentText": " hi"
+    },
+    "user": {
+        "name": "users/112431535371413540116",
+        "displayName": "Joey Guerra",
+        "avatarUrl": "https://lh3.googleusercontent.com/a-/AAuE7mCN37cW4-mLY5Rm-sTxv6gKR-RVXTsqRffz3gvq",
+        "email": "jguerra@thoughtworks.com",
+        "type": "HUMAN"
+    },
+    "space": {
+        "name": "spaces/AAAAK9JplZY",
+        "type": "ROOM",
+        "displayName": "testing-chatbots"
+    },
+    "configCompleteRedirectUrl": "https://chat.google.com/api/bot_config_complete?token=AClqJQRMArE_LXPbrzmlhVmYkHChKjECR5uj6AsHpunbMJPWyUF9Wd9a6DCMWjOdOTLV5ROfh4bR9J_d8cmWNDePuUvlrjH7ti5Cuob93i6GZxfgTMCVKCiHgbo0S9n13XOZFVg7JTXkiOxMhbgv"
+}

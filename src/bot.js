@@ -218,7 +218,10 @@ class HangoutsChatBot extends Adapter {
   onEventReceived(event, res) {
     const message = event.message;
     const space = event.space;
+    event.user.id = event.user.name;
+    event.user.name = event.user.displayName;
     let user = new User(event.user.name, event.user);
+
     // This is the room value used in the Message constructor. Added for
     // compatibility with Hubot's API.
     user.room = space.name;
