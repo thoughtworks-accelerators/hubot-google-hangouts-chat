@@ -1,4 +1,5 @@
 const dm = require("./messages-from-chat/dm.json")
+const dmInRoom = require("./messages-from-chat/dm-in-room.json")
 const addToRoom = require("./messages-from-chat/add-to-room.json")
 const {google} = require('googleapis')
 const {auth} = require('google-auth-library');
@@ -84,6 +85,19 @@ describe("Hubot Google Chat Adapter Integration Test", () => {
             .header("Content-Type", "application/json")
             .post(JSON.stringify(directMessage))
     })
+
+    it("Message sent to bot in a room should get a response.", done => {
+        let directMessage = Object.assign({}, dmInRoom)
+        directMessage.message.text = "@hubot help"
+        process.once("message created", message => {
+            Assert.strictEqual(message.requestBody.text, robot.helpCommands().join("\n"), "Script should responde.")
+            done()
+        }) 
+        robot.http(`http://localhost:${port}/`)
+            .header("Content-Type", "application/json")
+            .post(JSON.stringify(directMessage))
+    })
+
 })
 
 after(done => {

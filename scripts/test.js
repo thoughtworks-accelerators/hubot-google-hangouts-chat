@@ -16,5 +16,9 @@
 module.exports = robot => {
     robot.respond(/testing (.*)/, resp => {
         resp.reply("Hi. Thanks for testing me")
-    })  
+    })
+
+    robot.respond(/help/, resp => {
+        resp.reply(robot.helpCommands().join("\n"))
+    })
 }
