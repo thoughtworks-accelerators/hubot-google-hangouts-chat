@@ -178,10 +178,7 @@ class HangoutsChatBot extends Adapter {
     } else {
       this.robot.router.post("/", (req, res) => {
         this.onEventReceived(req.body, res)
-        if(!res.headersSent) {
-          res.sendStatus(200)
-        }
-        res.end()
+        res.status(200).end()
       })
     }
 

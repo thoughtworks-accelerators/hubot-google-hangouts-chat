@@ -92,10 +92,12 @@ describe("Hubot Google Chat Adapter Integration Test", () => {
         process.once("message created", message => {
             Assert.strictEqual(message.requestBody.text, robot.helpCommands().join("\n"), "Script should responde.")
             done()
-        }) 
+        })
         robot.http(`http://localhost:${port}/`)
             .header("Content-Type", "application/json")
-            .post(JSON.stringify(directMessage))
+            .post(JSON.stringify(directMessage))((err, resp, body)=>{
+                Assert.equal(body, "", "Should respond with an empty string")
+            })
     })
 
 })
