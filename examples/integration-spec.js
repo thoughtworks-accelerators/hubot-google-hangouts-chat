@@ -86,7 +86,7 @@ describe("Hubot Google Chat Adapter Integration Test", () => {
             .post(JSON.stringify(directMessage))
     })
 
-    it("Message sent to bot in a room should get a response.", done => {
+    it("Message sent with bot name in it should respond.", done => {
         let directMessage = Object.assign({}, dmInRoom)
         directMessage.message.text = "@hubot help"
         process.once("message created", message => {

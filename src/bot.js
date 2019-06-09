@@ -75,8 +75,7 @@ class HangoutsChatBot extends Adapter {
     if (!envelope.message) {
       throw new Error("When sending a reply, the envelope must contain a message");
     }
-    this.postMessage_(this.getSpaceFromEnvelope_(envelope), envelope.message.thread,
-      strings[0], strings[1])
+    this.postMessage_(this.getSpaceFromEnvelope_(envelope), envelope.message.thread, strings[0], strings[1])
   }
 
   getThreadFromEnvelope_(envelope){
