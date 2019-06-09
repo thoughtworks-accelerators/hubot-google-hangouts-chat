@@ -43,8 +43,8 @@ const robot = new Robot(botOptions.adapterPath, botOptions.adapterName,
 robot.load(Path.resolve(ROOT, "./scripts"))
 robot.run()
 
-describe("Integration test", () => {
-    it("Should adapt to Hubot's transport schema. ", done => {
+describe("Hubot Google Chat Adapter Integration Test", () => {
+    it("Google Chat's message schema is different that Hubot's. The Adapter should map to Hubot's schema.", done => {
         const botName = "hubot"
         const expected = `@${botName} ${dm.message.text}`
         const expectedName = dm.message.sender.displayName
@@ -60,7 +60,7 @@ describe("Integration test", () => {
             .post(JSON.stringify(dm))
     })
 
-    it("Should not bomb on an add to room message", done => {
+    it("Space name should map to Hubot's user room for an Add To Room message.", done => {
         robot.adapter.once("received", message => {
             Assert.strictEqual(message.user.room, addToRoom.space.name, `Should have the room name. ${message.user.room}`)
             done()
