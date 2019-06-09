@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "mocha \"examples/**/*-spec.js\"",
-    "test:one": "mocha --watch"
+    "test:one": "mocha"
   },
   "dependencies": {
     "@google-cloud/pubsub": "^0.29.1",
