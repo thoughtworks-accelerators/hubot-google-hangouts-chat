@@ -77,10 +77,12 @@ describe("Hubot Google Chat Adapter Integration Test", () => {
         process.once("message created", message => {
             Assert.strictEqual(message.requestBody.text, "Hi. Thanks for testing me", "Script should responde.")
         }) 
+        
         robot.adapter.once("received", message => {
             Assert.strictEqual(message.user.room, null, `Should reply to the same room. ${message.user.room}`)
             done()
         })
+
         robot.http(`http://localhost:${port}/`)
             .header("Content-Type", "application/json")
             .post(JSON.stringify(directMessage))
