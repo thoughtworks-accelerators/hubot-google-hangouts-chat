@@ -142,7 +142,7 @@ class HangoutsChatBot extends Adapter {
 
     // This is the room value used in the Message constructor. Added for
     // compatibility with Hubot's API.
-    user.room = space.name
+    user.room = space.displayName || null
     const eventTime = event.eventTime
 
     let hangoutsChatMessage

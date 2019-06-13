@@ -63,7 +63,7 @@ describe("Hubot Google Chat Adapter Integration Test", () => {
 
     it("Space name should map to Hubot's user room for an Add To Room message.", done => {
         robot.adapter.once("received", message => {
-            Assert.strictEqual(message.user.room, addToRoom.space.name, `Should have the room name. ${message.user.room}`)
+            Assert.strictEqual(message.user.room, addToRoom.space.displayName, `Should have the room name. ${message.user.room}`)
             done()
         })
         robot.http(`http://localhost:${port}/`)
@@ -71,14 +71,14 @@ describe("Hubot Google Chat Adapter Integration Test", () => {
             .post(JSON.stringify(addToRoom))
     })
 
-    it("A script should reply to the room that the message was sent from", done => {
+    it("A script should reply with null room when the message is a direct message", done => {
         let directMessage = Object.assign({}, dm)
         directMessage.message.text = "testing say something"
         process.once("message created", message => {
             Assert.strictEqual(message.requestBody.text, "Hi. Thanks for testing me", "Script should responde.")
         }) 
         robot.adapter.once("received", message => {
-            Assert.strictEqual(message.user.room, directMessage.space.name, `Should reply to the same room. ${message.user.room}`)
+            Assert.strictEqual(message.user.room, null, `Should reply to the same room. ${message.user.room}`)
             done()
         })
         robot.http(`http://localhost:${port}/`)
@@ -86,12 +86,15 @@ describe("Hubot Google Chat Adapter Integration Test", () => {
             .post(JSON.stringify(directMessage))
     })
 
-    it("Message sent with bot name in it should respond.", done => {
+    it("Message sent with bot name in it should respond with help commands within expected room.", done => {
         let directMessage = Object.assign({}, dmInRoom)
         directMessage.message.text = "@hubot help"
         process.once("message created", message => {
             Assert.strictEqual(message.requestBody.text, robot.helpCommands().join("\n"), "Script should responde.")
-            done()
+        })
+        robot.adapter.once("received", message => {
+          Assert.strictEqual(message.user.room, dmInRoom.space.displayName, `Should reply to the same room. ${message.user.room}`)
+          done()
         })
         robot.http(`http://localhost:${port}/`)
             .header("Content-Type", "application/json")
