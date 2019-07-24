@@ -10,7 +10,7 @@
   "dependencies": {
     "@google-cloud/pubsub": "^0.29.1",
     "google-auth-library": "^1.6.1",
-    "googleapis": "^32.0.0",
+    "googleapis": "^41.0.1",
     "request": "^2.87.0"
   },
   "devDependencies": {
